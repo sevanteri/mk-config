@@ -2,7 +2,7 @@
 
 #define COMB(_NAME, _BEH, KEYS) \
     combo_##_NAME { \
-        timeout-ms = <25>; \
+        timeout-ms = <20>; \
         bindings = <&kp _BEH>; \
         key-positions = <KEYS>; \
     };
