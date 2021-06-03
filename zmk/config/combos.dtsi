@@ -1,0 +1,158 @@
+#include "keypos.h"
+
+#define COMB(_NAME, _BEH, KEYS) \
+    combo_##_NAME { \
+        timeout-ms = <30>; \
+        bindings = <&kp _BEH>; \
+        key-positions = <KEYS>; \
+    };
+
+combos {
+    compatible = "zmk,combos";
+
+// right hand top row {{{
+/* COMB(ARING,      FI_ARNG,        P_H  P_U) */
+/* COMB(ACUT,       FI_ACUT,        P_I  P_L) */
+/* COMB(ASTERISK,  LSFT(FI_QUOT),  P_U  P_I  P_O) */
+
+//}}}
+// right hand home row {{{
+
+COMB(LESSTHAN,     FI_LABK,  P_H  P_J)
+COMB(GREATERTHAN,  FI_RABK,  P_H  P_K)
+COMB(SLASH,      FI_SLSH,     P_J     P_K)
+COMB(QUOT,       FI_QUOT,      P_K     P_L)
+COMB(EQUALS,   FI_EQL,  P_L  P_OE)
+
+COMB(QUESTION,   FI_QUES,  P_TR_2  P_OE)
+COMB(BACKSLASH,  FI_BSLS,  P_TR_2  P_J  P_K)
+
+COMB(SQUAREBRACERIGHT,  RA(N9),  P_M  P_DOT)
+COMB(PARENRIGHT,        LS(N9),  P_J  P_K  P_L)
+COMB(CURLYBRACERIGHT,   RA(N0),  P_J  P_L)
+
+//}}}
+// right hand bottom row {{{
+
+COMB(AMP,          FI_AMPR,  P_N     P_M)
+COMB(SEMICOLON,    FI_SCLN,  P_M     P_COMM)
+COMB(DOUBLECOLON,  FI_COLN,  P_COMM  P_DOT)
+COMB(UNDERSCORE,   FI_UNDS,  P_DOT   P_MINS)
+
+/* SUBS(DOTDOTSLASH,  "../",    P_TR_2  P_DOT) */
+
+//}}}
+
+// left hand top row {{{
+COMB(WE_TAB,  TAB,  P_W  P_E)
+
+/* SUBS(TILDE,   "~~",   P_R P_T) */
+
+/* COMB(MSBTN1, KBTN1, P_F P_R) */
+/* COMB(MSBTN2, KBTN2, P_E P_D) */
+//}}}
+// left hand home row {{{
+COMB(EXCLAMATIONP,  FI_EXLM,  P_A  P_S)
+COMB(DQUOTES,       FI_DQUO,  P_S  P_D)
+COMB(HASH,          FI_HASH,  P_D  P_F)
+COMB(PERCENTG,      FI_PERC,  P_F  P_G)
+
+COMB(SQUAREBRACELEFT,  RA(N8),  P_X  P_V)
+COMB(PARENLEFT,        LS(N8),  P_F  P_D  P_S)
+COMB(CURLYBRACELEFT,   RA(N7),  P_S  P_F)
+
+// thumbs
+COMB(THUMB_CTL_SFT,    LC(LSHFT),   P_TL_1 P_S)
+COMB(THUMB_ALT_SFT,    LA(LSHFT),   P_TL_2 P_S)
+COMB(THUMB_ALT_CTL,    LA(LCTRL),   P_TL_2 P_A)
+COMB(THUMB_GUI_CTL,    LG(LCTRL),   P_TL_3 P_A)
+COMB(THUMB_GUI_SFT,    LG(LSHFT),   P_TL_3 P_S)
+COMB(THUMB_GUI_ALT,    LG(LALT),   P_TL_3 P_Z)
+
+//}}}
+// left hand bottow row {{{
+COMB(PIPE,     FI_PIPE,  P_X     P_Z)
+COMB(AT,       FI_AT,     P_X     P_C)
+COMB(DOLLAR,   FI_DLR,     P_C     P_V)
+
+//}}}
+
+// both hands {{{
+COMB(SLEEP,  C_SLEEP,  P_Q     P_P)
+/* COMB(WAKE,   KC_WAKE,  P_W     P_O) */
+
+/* COMB(RESET,  bootloader,    P_V P_B P_N P_M) */
+
+/* COMB(SQUAREBRACEBOTH,  P_SQUAREBRACEBOTH,  P_X  P_V  P_M  P_DOT) */
+/* COMB(CURLYBRACEBOTH,   P_CURLYBRACEBOTH,   P_S  P_F  P_J  P_L) */
+/* COMB(PARENSBOTH,       P_PARENSBOTH,       P_S  P_D  P_F  P_J  P_K  P_L) */
+
+//}}}
+
+// string combos, double handed: thumb2 plus letter from other hand {{{
+
+/* SUBS(GMAIL,  "pete.sevander@gmail.com",  P_TR_2  P_G) */
+
+/* SUBS(OULD,  "ould",  P_U  P_O) */
+/* SUBS(IAPO,  "I'",    P_I  P_K  P_L) */
+/* SUBS(THE,   "the",   P_T  P_H) */
+
+// python
+
+/* SUBS(IMPORT,  "import",  P_TL_2  P_I) */
+/* SUBS(FROM,    "from",    P_TR_2  P_F) */
+/* SUBS(class,   "class",   P_TR_2  P_C) */
+/* SUBS(self,    "self",    P_TR_2  P_S) */
+
+/* SUBS(def,     "def ():" SLEFT SLEFT SLEFT,  P_TR_2  P_D) */
+/* SUBS(dunder,  "____" SLEFT SLEFT,           P_TL_2  P_MINS) */
+
+// }}}
+
+// randoms {{{
+COMB(MUTE,   C_MUTE,  P_QUOT  P_AE)
+
+/* COMB(MOUS3,   KC_BTN3,   KC_BTN1 KC_BTN2) */
+
+/* COMB(WORDCAPS, WORDCAPS,   KC_LSFT CTRLESC KC_TAB) */
+
+
+// alt + number for browser tabs and tmux {{{
+COMB(ALTN1,            LA(N1),    P_TAB  P_Q)
+COMB(ALTN2,            LA(N2),    P_TAB  P_W)
+COMB(ALTN3,            LA(N3),    P_TAB  P_E)
+COMB(ALTN4,            LA(N4),    P_TAB  P_R)
+COMB(ALTN5,            LA(N5),    P_TAB  P_T)
+COMB(ALTN6,            LA(N6),    P_QUOT P_Y)
+COMB(ALTN7,            LA(N7),    P_QUOT P_U)
+COMB(ALTN8,            LA(N8),    P_QUOT P_I)
+COMB(ALTN9,            LA(N9),    P_QUOT P_O)
+COMB(ALTN0,            LA(N0),    P_QUOT P_P)
+//}}}
+//}}}
+
+// vertical combos {{{
+
+// right hand
+COMB(CTRLSIX,   LC(N6),     P_H  P_Y)
+
+COMB(NEXTTAB,   LC(TAB),        P_K P_COMM)
+COMB(PREVTAB,   LC(LS(TAB)),        P_K P_I)
+COMB(WBAK,      K_BACK,        P_U P_J)
+COMB(WFWD,      K_FORWARD,        P_O P_L)
+// C_AC_BACK/FORWARD
+
+COMB(PLUS,      FI_PLUS,        P_P  P_OE)
+COMB(PLUS2,     FI_PLUS,        P_MINS  P_OE)
+
+// left hand
+COMB(DIAERESIS,  FI_DIAE,  P_G  P_T)
+COMB(SECT,       FI_SECT,  P_A  P_Q)
+
+// left hand thumb
+/* SUBS(CODEBLK,  "``",  P_TL_2 P_THUL2) */
+
+
+// }}}
+
+};
