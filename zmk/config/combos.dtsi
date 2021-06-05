@@ -24,8 +24,8 @@ combos {
 
 COMB(LESSTHAN,    FI_LABK,             P_H P_J)
 COMB(GREATERTHAN, FI_RABK,             P_H P_K)
-BEHC(SLASH,       <&mt LCTRL FI_SLSH>, P_J P_K)
-BEHC(QUOT,        <&mt LGUI FI_QUOT>,  P_K P_L)
+BEHC(SLASH,       <&tm LCTRL FI_SLSH>, P_J P_K)
+BEHC(QUOT,        <&tm LGUI FI_QUOT>,  P_K P_L)
 COMB(EQUALS,      FI_EQL,              P_L P_OE)
 
 COMB(QUESTION,   FI_QUES,  P_TR_2  P_OE)

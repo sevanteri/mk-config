@@ -1,0 +1,11 @@
+behaviors {
+    tm: tap-mod {
+        compatible = "zmk,behavior-hold-tap";
+        label = "TAP-MOD";
+        tapping-term-ms = <200>;
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+    };
+};
+
