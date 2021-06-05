@@ -1,11 +1,15 @@
 #include "keypos.h"
 
-#define COMB(_NAME, _BEH, KEYS) \
+#define BEHC(_NAME, _BIND, _KEYS) \
     combo_##_NAME { \
         timeout-ms = <20>; \
-        bindings = <&kp _BEH>; \
-        key-positions = <KEYS>; \
+        bindings = _BIND; \
+        key-positions = <_KEYS>; \
+        slow-release; \
     };
+
+#define COMB(_NAME, _KEY, _KEYS) \
+    BEHC(##_NAME, <&kp _KEY>, _KEYS)
 
 combos {
     compatible = "zmk,combos";
@@ -18,11 +22,11 @@ combos {
 //}}}
 // right hand home row {{{
 
-COMB(LESSTHAN,     FI_LABK,  P_H  P_J)
-COMB(GREATERTHAN,  FI_RABK,  P_H  P_K)
-COMB(SLASH,      FI_SLSH,     P_J     P_K)
-COMB(QUOT,       FI_QUOT,      P_K     P_L)
-COMB(EQUALS,   FI_EQL,  P_L  P_OE)
+COMB(LESSTHAN,    FI_LABK,             P_H P_J)
+COMB(GREATERTHAN, FI_RABK,             P_H P_K)
+BEHC(SLASH,       <&mt LCTRL FI_SLSH>, P_J P_K)
+BEHC(QUOT,        <&mt LGUI FI_QUOT>,  P_K P_L)
+COMB(EQUALS,      FI_EQL,              P_L P_OE)
 
 COMB(QUESTION,   FI_QUES,  P_TR_2  P_OE)
 COMB(BACKSLASH,  FI_BSLS,  P_TR_2  P_J  P_K)
@@ -81,7 +85,7 @@ COMB(DOLLAR,   FI_DLR,     P_C     P_V)
 COMB(SLEEP,  C_SLEEP,  P_Q     P_P)
 /* COMB(WAKE,   KC_WAKE,  P_W     P_O) */
 
-/* COMB(RESET,  bootloader,    P_V P_B P_N P_M) */
+BEHC(RESET,  <&bootloader>,    P_V P_B P_N P_M)
 
 /* COMB(SQUAREBRACEBOTH,  P_SQUAREBRACEBOTH,  P_X  P_V  P_M  P_DOT) */
 /* COMB(CURLYBRACEBOTH,   P_CURLYBRACEBOTH,   P_S  P_F  P_J  P_L) */
