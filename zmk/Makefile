@@ -1,10 +1,10 @@
-
 board=nice_nano
 shield=kyria
 zmk_image=zmkfirmware/zmk-dev-arm:2.4
 zmk=${PWD}/zmk
 uf2=${PWD}/uf2
-bootloader=/media/${USER}/NICENANO
+device=/dev/disk/by-label/NICENANO
+mount=/media/${USER}/NICENANO
 config=${PWD}/config
 
 define build
@@ -25,10 +25,13 @@ endef
 # endef
 
 define flash
-	@ printf "\nWaiting for $(1) ${board} to appear at ${bootloader} ."
-	@ while [ ! -f "${bootloader}/current.uf2" ]; do sleep 1; printf "."; done
+	@ printf "\nWaiting for a nice!nano to appear\n"
+	@ while [ ! -b ${device} ]; do sleep 1; printf "."; done
+	@ findmnt "${device}" || udisksctl mount --block-device ${device}
+	@ printf "\nWaiting for $(1) ${board} to appear at ${mount} ."
+	@ while [ ! -f "${mount}/current.uf2" ]; do sleep 1; printf "."; done
 	@ printf "\n";
-	cp -av "${uf2}/$(1).uf2" "${bootloader}/"
+	cp -av "${uf2}/$(1).uf2" "${mount}/"
 endef
 
 default: flash-left
@@ -40,6 +43,10 @@ dirs:
 uf2: dirs
 	$(call build,${shield}_left)
 	$(call build,${shield}_right)
+
+.PHONY: flash-left
+_flash-left: dirs
+	$(call flash,${shield}_left)
 
 .PHONY: flash-left
 flash-left: dirs
