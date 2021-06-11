@@ -58,9 +58,9 @@
         nav_layer {
             bindings = <
 //     ╭──────────┬─────────┬─────────┬─────────┬─────────┬─────────╮                                             ╭────────┬─────────┬─────────┬─────────┬─────────┬───────────╮
-        &trans     &trans    &kp LC(RIGHT) &trans &trans   &trans                                                  &trans   &trans    &trans    &trans    &trans    &ext_power EP_OFF
+        &trans     &trans    &kp LC(RIGHT) &trans &trans   &trans                                                  &trans   &kp PG_UP &trans    &trans    &trans    &ext_power EP_OFF
 //     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                             ├────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
-        &trans     &trans    &trans    &trans    &trans    &kp HOME                                                &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans    &ext_power EP_ON
+        &trans     &trans    &trans    &kp PG_DN &trans    &kp HOME                                                &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans    &ext_power EP_ON
 //     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────╮     ╭─────────┼─────────┼────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
         &trans     &trans    &trans    &trans    &kp END   &kp LC(LEFT) &trans &trans          &trans    &trans    &trans   &trans    &trans    &trans    &trans    &trans
 //     ╰──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼────────┼─────────┼─────────┼─────────┼─────────┼───────────╯
