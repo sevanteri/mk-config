@@ -15,9 +15,10 @@ combos {
     compatible = "zmk,combos";
 
 // right hand top row {{{
-/* COMB(ARING,      FI_ARNG,        P_H  P_U) */
-/* COMB(ACUT,       FI_ACUT,        P_I  P_L) */
-/* COMB(ASTERISK,  LSFT(FI_QUOT),  P_U  P_I  P_O) */
+COMB(ARING,    FI_ARNG,       P_H  P_U)
+COMB(ACUT,     FI_ACUT,       P_I  P_L)
+/* COMB(ASTERISK, LSFT(FI_QUOT), P_U  P_I  P_O) */
+COMB(RTAB,     TAB,   P_I P_O)
 
 //}}}
 // right hand home row {{{
@@ -26,7 +27,7 @@ COMB(LESSTHAN,    FI_LABK,             P_H P_J)
 COMB(GREATERTHAN, FI_RABK,             P_H P_K)
 BEHC(SLASH,       <&tm LCTRL FI_SLSH>, P_J P_K)
 BEHC(QUOT,        <&tm LGUI FI_QUOT>,  P_K P_L)
-COMB(EQUALS,      FI_EQL,              P_L P_OE)
+BEHC(EQUALS,      <&tm LALT FI_EQL>,   P_L P_OE)
 
 COMB(QUESTION,   FI_QUES,  P_TR_2  P_OE)
 COMB(BACKSLASH,  FI_BSLS,  P_TR_2  P_J  P_K)
