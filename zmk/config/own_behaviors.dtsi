@@ -7,5 +7,6 @@ behaviors {
         flavor = "tap-preferred";
         bindings = <&kp>, <&kp>;
     };
+    #include "macros.dtsi"
 };
 

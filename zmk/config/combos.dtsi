@@ -2,7 +2,7 @@
 
 #define BEHC(_NAME, _BIND, _KEYS) \
     combo_##_NAME { \
-        timeout-ms = <20>; \
+        timeout-ms = <25>; \
         bindings = _BIND; \
         key-positions = <_KEYS>; \
         slow-release; \
@@ -16,7 +16,7 @@ combos {
 
 // right hand top row {{{
 COMB(ARING,    FI_ARNG,       P_H  P_U)
-COMB(ACUT,     FI_ACUT,       P_I  P_L)
+COMB(ACUT,     FI_ACUT,       P_K  P_O)
 /* COMB(ASTERISK, LSFT(FI_QUOT), P_U  P_I  P_O) */
 COMB(RTAB,     TAB,   P_I P_O)
 
@@ -44,14 +44,14 @@ COMB(SEMICOLON,    FI_SCLN,  P_M     P_COMM)
 COMB(DOUBLECOLON,  FI_COLN,  P_COMM  P_DOT)
 COMB(UNDERSCORE,   FI_UNDS,  P_DOT   P_MINS)
 
-/* SUBS(DOTDOTSLASH,  "../",    P_TR_2  P_DOT) */
+BEHC(DOTDOTSLASH,  <&ddslash>,    P_TR_2  P_DOT)
 
 //}}}
 
 // left hand top row {{{
 COMB(WE_TAB,  TAB,  P_W  P_E)
 
-/* SUBS(TILDE,   "~~",   P_R P_T) */
+BEHC(TILDE,   <&double_tilde>,   P_R P_T)
 
 /* COMB(MSBTN1, KBTN1, P_F P_R) */
 /* COMB(MSBTN2, KBTN2, P_E P_D) */
@@ -99,7 +99,8 @@ BEHC(RESET,  <&bootloader>,    P_V P_B P_N P_M)
 /* SUBS(GMAIL,  "pete.sevander@gmail.com",  P_TR_2  P_G) */
 
 /* SUBS(OULD,  "ould",  P_U  P_O) */
-/* SUBS(IAPO,  "I'",    P_I  P_K  P_L) */
+BEHC(IAPO,  <&iquote>,  P_I  P_K  P_L)
+BEHC(IAPO2,  <&iquote>,  P_TR_2  P_I)
 /* SUBS(THE,   "the",   P_T  P_H) */
 
 // python
@@ -155,7 +156,7 @@ COMB(DIAERESIS,  FI_DIAE,  P_G  P_T)
 COMB(SECT,       FI_SECT,  P_A  P_Q)
 
 // left hand thumb
-/* SUBS(CODEBLK,  "``",  P_TL_2 P_THUL2) */
+BEHC(CODEBLK,  <&double_acut>,  P_TL_2 P_TUL_2)
 
 
 // }}}

@@ -1,0 +1,30 @@
+double_acut: double_shift_acut_macro {
+    compatible = "zmk,behavior-macro";
+    label = "double_shift_acut_macro";
+    #binding-cells = <0>;
+    bindings = <&kp LS(FI_ACUT)>, <&kp LS(FI_ACUT)>;
+};
+
+
+double_tilde: double_ralt_diae {
+    compatible = "zmk,behavior-macro";
+    label = "double_ralt_diae";
+    #binding-cells = <0>;
+    bindings = <&kp RA(FI_DIAE)>, <&kp RA(FI_DIAE)>;
+};
+
+
+ddslash: dot_dot_slash_macro {
+    compatible = "zmk,behavior-macro";
+    label = "dot_dot_slash_macro";
+    #binding-cells = <0>;
+    bindings = <&kp FI_DOT>, <&kp FI_DOT>, <&kp FI_SLSH>;
+};
+
+
+iquote: iquote_macro {
+    compatible = "zmk,behavior-macro";
+    label = "iquote_macro";
+    #binding-cells = <0>;
+    bindings = <&kp LS(I)>, <&kp FI_QUOT>;
+};
