@@ -39,8 +39,8 @@
 #define FI_J    J    // J
 #define FI_K    K    // K
 #define FI_L    L    // L
-#define FI_ODIA SINGLE_QUOTE // Ö
-#define FI_ADIA SEMICOLON // Ä
+#define FI_ODIA SEMICOLON // Ö
+#define FI_ADIA SINGLE_QUOTE // Ä
 #define FI_QUOT BACKSLASH // '
 
 // Row 4
