@@ -9,8 +9,8 @@ config=${PWD}/config
 
 define build
 	cd ${HOME}/src/zmk/app ;\
-	west build --pristine -b "${board}" \
-		-- -DSHIELD="$(1)" -DZMK_CONFIG="${config}" \
+	west build --pristine -b "$(1)" \
+		-- -DSHIELD="$(2)" -DZMK_CONFIG="${config}" \
 		&& cp build/zephyr/zmk.uf2 ${uf2}/$(1).uf2
 
 endef
@@ -28,7 +28,7 @@ define flash
 	@ printf "\nWaiting for a nice!nano to appear\n"
 	@ while [ ! -b ${device} ]; do sleep 1; printf "."; done
 	@ findmnt "${device}" || udisksctl mount --block-device ${device}
-	@ printf "\nWaiting for $(1) ${board} to appear at ${mount} ."
+	@ printf "\nWaiting for $(2) $(1) to appear at ${mount} ."
 	@ while [ ! -f "${mount}/current.uf2" ]; do sleep 1; printf "."; done
 	@ printf "\n";
 	cp -av "${uf2}/$(1).uf2" "${mount}/"
@@ -41,8 +41,8 @@ dirs:
 
 .PHONY: uf2
 uf2: dirs
-	$(call build,${shield}_left)
-	$(call build,${shield}_right)
+	$(call build,nice_nano_v2,${shield}_left nice_view_adapter nice_view)
+	$(call build,nice_nano,${shield}_right nice_view_adapter nice_view)
 
 .PHONY: flash-left
 _flash-left: dirs
@@ -50,12 +50,12 @@ _flash-left: dirs
 
 .PHONY: flash-left
 flash-left: dirs
-	$(call build,${shield}_left)
+	$(call build,nice_nano_v2,${shield}_left nice_view_adapter nice_view)
 	$(call flash,${shield}_left)
 
 .PHONY: flash-right
 flash-right: dirs
-	$(call build,${shield}_right)
+	$(call build,nice_nano,${shield}_right nice_view_adapter nice_view)
 	$(call flash,${shield}_right)
 
 # .PHONY: zmk
