@@ -9,7 +9,7 @@
     };
 
 #define COMB(_NAME, _BIND, _KEYS) COMBO_BASE(_NAME, _BIND, _KEYS, 25)
-#define VERT(_NAME, _BIND, _KEYS) COMBO_BASE(_NAME, _BIND, _KEYS, 100)
+#define VERT(_NAME, _BIND, _KEYS) COMBO_BASE(_NAME, _BIND, _KEYS, 25)
 
 combos {
     compatible = "zmk,combos";
@@ -20,7 +20,6 @@ COMB(acut,     &kp FI_ACUT,       P_K  P_O)
 /* COMB(ASTERISK, LSFT(FI_QUOT), P_U  P_I  P_O) */
 COMB(rtab,     &kp TAB,   P_I P_O)
 
-COMB(plus3,     &kp FI_PLUS,        P_O P_P)
 
 //}}}
 // right hand home row {{{
@@ -145,11 +144,13 @@ COMB(altn1 ,  &kp LA(N0) , P_QUOT P_P)
 // right hand
 VERT(ctrlsix,   &kp LC(N6),     P_H  P_Y)
 
-COMB(nexttab, &kp LC(TAB),     P_K P_COMM)
-COMB(prevtab, &kp LC(LS(TAB)), P_K P_I)
-COMB(wbak,    &kp K_BACK,      P_U P_J)
-COMB(wfwd,    &kp K_FORWARD,   P_O P_L)
+VERT(nexttab, &kp LC(TAB),     P_K P_COMM)
+VERT(prevtab, &kp LC(LS(TAB)), P_K P_I)
+VERT(wbak,    &kp K_BACK,      P_U P_J)
+VERT(wfwd,    &kp K_FORWARD,   P_O P_L)
 // C_AC_BACK/FORWARD
+
+VERT(plus,      &kp FI_PLUS,        P_P  P_OE)
 
 // left hand
 VERT(diaeresis,  &kp FI_DIAE,  P_G  P_T)

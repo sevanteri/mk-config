@@ -41,7 +41,7 @@
 };
 &mt {
     quick_tap_ms = <200>;
-    flavor = "balanced";
+    flavor = "hold-preferred";
 };
 / {
     #include "own_behaviors.dtsi"
