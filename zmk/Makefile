@@ -28,7 +28,7 @@ define flash
 	@ printf "\nWaiting for a nice!nano to appear\n"
 	@ while [ ! -b ${device} ]; do sleep 1; printf "."; done
 	@ findmnt "${device}" || udisksctl mount --block-device ${device}
-	@ printf "\nWaiting for $(2) $(1) to appear at ${mount} ."
+	@ printf "\nWaiting for $(2) to appear at ${mount} ."
 	@ while [ ! -f "${mount}/current.uf2" ]; do sleep 1; printf "."; done
 	@ printf "\n";
 	cp -av "${uf2}/$(1).uf2" "${mount}/"
@@ -39,24 +39,24 @@ default: flash-left
 dirs:
 	@mkdir -p uf2
 
-.PHONY: uf2
-uf2: dirs
+.PHONY: left
+left: dirs
 	$(call build,nice_nano_v2,${shield}_left nice_view_adapter nice_view)
+
+.PHONY: right
+right: dirs
 	$(call build,nice_nano,${shield}_right nice_view_adapter nice_view)
 
-.PHONY: flash-left
-_flash-left: dirs
-	$(call flash,${shield}_left)
+.PHONY: uf2
+uf2: left right
 
 .PHONY: flash-left
-flash-left: dirs
-	$(call build,nice_nano_v2,${shield}_left nice_view_adapter nice_view)
-	$(call flash,${shield}_left)
+flash-left: left
+	$(call flash,nice_nano_v2,${shield}_left)
 
 .PHONY: flash-right
-flash-right: dirs
-	$(call build,nice_nano,${shield}_right nice_view_adapter nice_view)
-	$(call flash,${shield}_right)
+flash-right: right
+	$(call flash,nice_nano,${shield}_right)
 
 # .PHONY: zmk
 # zmk:

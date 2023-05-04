@@ -9,7 +9,7 @@
     };
 
 #define COMB(_NAME, _BIND, _KEYS) COMBO_BASE(_NAME, _BIND, _KEYS, 25)
-#define VERT(_NAME, _BIND, _KEYS) COMBO_BASE(_NAME, _BIND, _KEYS, 25)
+#define VERT(_NAME, _BIND, _KEYS) COMBO_BASE(_NAME, _BIND, _KEYS, 100)
 
 combos {
     compatible = "zmk,combos";

@@ -14,15 +14,9 @@
 
 // layers
 #define _BASE 0
-#define _NORM 1
-#define _NAV 2
-#define _NUM 3
-#define _ADJ 4
-
-// bluetooth
-#define BT_PC BT_SEL 0
-#define BT_MOB BT_SEL 1
-
+#define _NAV 1
+#define _NUM 2
+#define _ADJ 3
 
 #define _____ &trans
 #define XXXXX &trans
@@ -31,6 +25,7 @@
 #define LCBSPC &mt LCTRL BACKSPACE
 #define CTRLESC &mt LCTRL ESC
 #define NAVRET &lt _NAV RET
+#define TABGUI &mt LGUI TAB
 
 #define AE FI_ADIA
 #define OE FI_ODIA
@@ -57,23 +52,9 @@
 //     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
         CTRLESC    &kp A     &kp S     &kp D     &kp F     &kp G                                                   &kp H     &kp J     &kp K     &kp L     &kp OE    &kp AE
 //     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────╮     ╭─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
-        &kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B     &tog _NORM &mo _NAV       &none     &none     &kp N     &kp M     &kp COMMA &kp DOT   &kp MINS  &kp RCTRL
+        &kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B     &trans    &mo _NAV        &none     &none     &kp N     &kp M     &kp COMMA &kp DOT   &kp MINS  &kp RCTRL
 //     ╰──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────╯
-                                       &mo _NAV  &mo _NUM  &kp LGUI  LASPC     LCBSPC          NAVRET    &sk LSHFT &mo _NUM  &kp RALT  &none
-//                                    ╰─────────┴─────────┴─────────┴─────────┴─────────╯     ╰─────────┴─────────┴─────────┴─────────┴─────────╯
-            >;
-        };
-
-        norman {
-            bindings = <
-//     ╭──────────┬─────────┬─────────┬─────────┬─────────┬─────────╮                                             ╭─────────┬─────────┬─────────┬─────────┬─────────┬───────────╮
-        &kp TAB    &kp Q     &kp W     &kp D     &kp F     &kp K                                                   &kp J     &kp U     &kp R     &kp L     &kp OE     &kp FI_QUOT
-//     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
-        CTRLESC    &kp A     &kp S     &kp E     &kp T     &kp G                                                   &kp Y     &kp N     &kp I     &kp O     &kp H     &kp AE
-//     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────╮     ╭─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
-        &kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B     &tog _NORM &mo _NAV       &none     &none     &kp P     &kp M     &kp COMMA &kp DOT   &kp MINS  &kp RCTRL
-//     ╰──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────╯
-                                       &mo _NAV  &mo _NUM  &kp LGUI  LASPC     LCBSPC          NAVRET    &sk LSHFT &mo _NUM  &kp RALT  &none
+                                       &mo _ADJ  &mo _NUM  TABGUI    LASPC     LCBSPC          NAVRET    &sk LSHFT &mo _NUM  &kp RALT  &none
 //                                    ╰─────────┴─────────┴─────────┴─────────┴─────────╯     ╰─────────┴─────────┴─────────┴─────────┴─────────╯
             >;
         };
@@ -81,13 +62,13 @@
         nav_layer {
             bindings = <
 //     ╭──────────┬─────────┬─────────┬─────────┬─────────┬─────────╮                                             ╭─────────┬─────────┬─────────┬─────────┬─────────┬───────────╮
-        &kp UP     &trans    &kp LC(RIGHT) &trans &trans   &trans                                                  &trans    &kp PG_UP &trans    &trans    &kp C_VOL_UP &kp UP
+        &trans     &trans    &kp LC(RIGHT) &trans &trans   &trans                                                  &trans    &kp PG_DN &kp PG_UP &trans    &kp C_VOL_UP &trans
 //     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
-        &kp DOWN   &trans    &trans    &kp PG_DN &trans    &kp HOME                                                &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp C_VOL_DN &kp DOWN
+        &trans     &trans    &trans    &kp PG_DN &trans    &kp HOME                                                &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp C_VOL_DN &trans
 //     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────╮     ╭─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
         &trans     &trans    &kp DEL   &trans    &kp END   &kp LC(LEFT) &trans &trans          &trans    &trans    &trans    &trans    &trans    &trans    &kp C_PP  &trans
 //     ╰──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────╯
-                                       &trans    &trans    &trans    &trans    &kp DEL         &trans    &trans    &trans    &out OUT_TOG &bt BT_CLR
+                                       &trans    &trans    &trans    &trans    &kp DEL         &trans    &trans    &trans    &trans    &trans
 //                                    ╰─────────┴─────────┴─────────┴─────────┴─────────╯     ╰─────────┴─────────┴─────────┴─────────┴─────────╯
             >;
         };
@@ -101,7 +82,7 @@
 //     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────╮     ╭─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
         &trans     &trans    &trans    &trans    &trans    &trans    &trans    &trans          &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
 //     ╰──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────╯
-                                       &bt BT_PC &bt BT_MOB &trans   &trans   &trans           &trans    &trans    &trans    &trans    &trans
+                                       &trans    &trans    &trans    &trans    &trans          &trans    &trans    &trans    &trans    &trans
 //                                    ╰─────────┴─────────┴─────────┴─────────┴─────────╯     ╰─────────┴─────────┴─────────┴─────────┴─────────╯
             >;
         };
@@ -109,13 +90,13 @@
         adjust_layer {
             bindings = <
 //     ╭──────────┬─────────┬─────────┬─────────┬─────────┬─────────╮                                             ╭─────────┬─────────┬─────────┬─────────┬─────────┬───────────╮
-        &kp F11    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                                                  &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F12
+        &bootloader &trans    &trans    &trans    &trans    &trans                                                  &trans    &trans    &trans    &trans    &trans    &bootloader 
 //     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
-        &trans     &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                  &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &trans
+        &trans     &trans    &trans    &trans    &trans    &trans                                                  &trans    &bt BT_PRV &bt BT_NXT &trans  &trans    &trans 
 //     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────╮     ╭─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
         &trans     &trans    &trans    &trans    &trans    &trans    &trans    &trans          &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
 //     ╰──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────╯
-                                       &bt BT_PC &bt BT_MOB &trans   &trans   &trans           &trans    &trans    &trans    &trans    &trans
+                                       &trans    &trans    &trans    &trans    &trans          &trans    &trans    &trans    &out OUT_TOG &bt BT_CLR
 //                                    ╰─────────┴─────────┴─────────┴─────────┴─────────╯     ╰─────────┴─────────┴─────────┴─────────┴─────────╯
             >;
         };
@@ -128,15 +109,15 @@
 
         template_layer {
             bindings = <
-//     ╭──────────┬─────────┬─────────┬─────────┬─────────┬─────────╮                                             ╭────────┬─────────┬─────────┬─────────┬─────────┬───────────╮
-        &trans     &trans    &trans    &trans    &trans    &trans                                                  &trans   &trans    &trans    &trans    &trans    &trans 
-//     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                             ├────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
-        &trans   &trans    &trans    &trans    &trans    &trans                                                   &trans   &trans    &trans    &trans    &trans    &trans 
-//     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────╮     ╭─────────┼─────────┼────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
-        &trans     &trans    &trans    &trans    &trans    &trans    &trans    &trans          &trans    &trans    &trans   &trans    &trans    &trans    &trans    &trans
-//     ╰──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼────────┼─────────┼─────────┼─────────┼─────────┼───────────╯
-                                       &bt BT_PC &bt BT_MOB &trans   &trans   &trans           &trans    &trans    &trans   &trans    &trans
-//                                    ╰─────────┴─────────┴─────────┴─────────┴─────────╯     ╰─────────┴─────────┴────────┴─────────┴─────────╯
+//     ╭──────────┬─────────┬─────────┬─────────┬─────────┬─────────╮                                             ╭─────────┬─────────┬─────────┬─────────┬─────────┬───────────╮
+        &trans     &trans    &trans    &trans    &trans    &trans                                                  &trans    &trans    &trans    &trans    &trans    &trans 
+//     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
+        &trans     &trans    &trans    &trans    &trans    &trans                                                  &trans    &trans    &trans    &trans    &trans    &trans 
+//     ├──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────╮     ╭─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────┤
+        &trans     &trans    &trans    &trans    &trans    &trans    &trans    &trans          &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+//     ╰──────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤     ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────────╯
+                                       &trans    &trans    &trans    &trans    &trans          &trans    &trans    &trans    &trans    &trans
+//                                    ╰─────────┴─────────┴─────────┴─────────┴─────────╯     ╰─────────┴─────────┴─────────┴─────────┴─────────╯
             >;
         };
 
