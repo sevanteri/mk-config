@@ -30,11 +30,13 @@ COMB(slash,       &tm LCTRL FI_SLSH, P_J P_K)
 COMB(quot,        &tm LGUI FI_QUOT,  P_K P_L)
 COMB(equals,      &tm LALT FI_EQL,   P_L P_OE)
 
+
+VERT(plus,       &kp FI_PLUS,  P_TR_2  P_L)
 COMB(question,   &kp FI_QUES,  P_TR_2  P_OE)
 COMB(backslash,  &kp FI_BSLS,  P_TR_2  P_J  P_K)
 
-COMB(squarebraceright,  &kp RA(N9),  P_M  P_DOT)
-COMB(parenright,        &kp LS(N9),  P_J  P_K  P_L)
+COMB(squarebraceright,  &kp RA(N9),  P_J  P_M)
+COMB(parenright,        &kp LS(N9),  P_M  P_DOT)
 COMB(curlybraceright,   &kp RA(N0),  P_J  P_L)
 
 //}}}
@@ -63,8 +65,8 @@ COMB(dquotes,       &kp FI_DQUO,  P_S  P_D)
 COMB(hash,          &lt _NAV FI_HASH,  P_D  P_F)
 COMB(percentg,      &kp FI_PERC,  P_F  P_G)
 
-COMB(squarebraceleft,  &kp RA(N8),  P_X  P_V)
-COMB(parenleft,        &kp LS(N8),  P_F  P_D  P_S)
+COMB(squarebraceleft,  &kp RA(N8),  P_F  P_V)
+COMB(parenleft,        &kp LS(N8),  P_X  P_V)
 COMB(curlybraceleft,   &kp RA(N7),  P_S  P_F)
 
 // thumbs
@@ -149,8 +151,6 @@ VERT(prevtab, &kp LC(LS(TAB)), P_K P_I)
 VERT(wbak,    &kp K_BACK,      P_U P_J)
 VERT(wfwd,    &kp K_FORWARD,   P_O P_L)
 // C_AC_BACK/FORWARD
-
-VERT(plus,      &kp FI_PLUS,        P_P  P_OE)
 
 // left hand
 VERT(diaeresis,  &kp FI_DIAE,  P_G  P_T)
